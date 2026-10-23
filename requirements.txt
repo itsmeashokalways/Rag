@@ -1,0 +1,11 @@
+streamlit
+openai
+langchain-core
+langchain-community
+psycopg2-binary
+sentence-transformers
+python-dotenv
+docx2txt
+pymupdf
+
+

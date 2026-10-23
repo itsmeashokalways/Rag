@@ -1,0 +1,93 @@
+RAG System Runbook
+
+Purpose:
+This runbook provides step-by-step instructions to operate, maintain, and troubleshoot the RAG Document Q&A system.
+
+1. First-Time Setup
+
+    Refer to README.md for full installation details.
+    
+    - Install PostgreSQL
+    - Ensure PostgreSQL service is running
+    - Install and enable pgvector extension
+    - Create virtual environment
+    - Activate environment
+    - Install dependencies
+    - Configure .env file from .env.example
+
+    Initialize database:
+        python Scripts/init_db.py
+
+    Run application:
+        streamlit run app/main.py
+
+    Open UI and click "Refresh Documents"
+
+2. Daily Usage
+
+    - Start PostgreSQL
+    - Activate environment
+    - Run:
+        streamlit run app/main.py
+    - Open UI
+    - Select or create session
+    - Refresh documents if needed
+    - Ask questions
+
+3. Document Update
+
+    - Add/remove files in DOCS_PATH
+    - Supported: PDF, TXT, DOCX, MD
+    - Click "Refresh Documents"
+
+    System will:
+    - Insert new files
+    - Update existing files
+    - Remove deleted files
+
+4. Common Issues
+
+    DB not found:
+        python Scripts/init_db.py
+
+    pgvector error:
+        Ensure extension installed and enabled
+
+    Module error:
+        Use python -m
+
+    No answer:
+        Refresh documents
+
+    API error (503):
+        Retry or use Groq
+
+    SSL issue:
+        Use trusted network (don't use office network)
+
+5. Full Reset
+
+    - Drop database (optional)
+    - Run:
+    python Scripts/init_db.py
+    - Restart app
+    - Refresh documents
+
+6. Configuration Notes
+
+    - Config handled via .env
+    - Includes DB, API, embeddings, chunking, TOP_K
+
+7. Important Notes
+
+    - PostgreSQL must be running
+    - pgvector must be installed and enabled
+    - Use Groq API
+    - Refresh documents after changes
+
+8. Best Practices
+
+    - Use clean documents
+    - Tune TOP_K, CHUNK_SIZE, CHUNK_OVERLAP
+
+
