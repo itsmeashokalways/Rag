@@ -211,7 +211,7 @@ streamlit run app/main.py
 ## Author
 
 Ashok V  
-(Academic Intern)
+
 
 ---
 
